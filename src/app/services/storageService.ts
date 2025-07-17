@@ -1,51 +1,59 @@
-import { Preferences, GetResult } from '@capacitor/preferences';
-
 export enum StorageKey {
   // Login
-  LOGIN_USERNAME_LASTEST = 1, // String
-  PASSWORD, // String
-  LOGIN_STAYLOGIN, // Boolean
-  LOGIN_ACCOUNTS, // Object Map: {username1:password1, username2:password2}
+  LOGIN_USERNAME_LASTEST = 1,
+  PASSWORD,
+  LOGIN_STAYLOGIN,
+  LOGIN_ACCOUNTS,
 
   // User
-  TOKEN_BE, // String Back-End Token
-  TOKEN_FE, // String Front-End Token
-  TOKEN_FS, // String File server Token
-  TOKEN_FB, // String Firebase Token
-  USER, // Object User
-  UNIT, // Object Unit
-  ROLES, // List Object Role
-  AVATAR, // String url
+  TOKEN_BE,
+  TOKEN_FE,
+  TOKEN_FS,
+  TOKEN_FB,
+  USER,
+  UNIT,
+  ROLES,
+  AVATAR,
 
   // Menu
-  MENU, // List Object Menu
+  MENU,
 
   // API
-  DATASOURCE, // Number - DatasourceId
-  DATASOURCE_2, // Number - DatasourceId
-  DATASOURCE_CONFIG, // Number - DatasourceId
-  DATASOURCE_CHAT, // Number - DatasourceId
+  DATASOURCE,
+  DATASOURCE_2,
+  DATASOURCE_CONFIG,
+  DATASOURCE_CHAT,
 
   // FIREBASE
-  FB_USER, // Object User
+  FB_USER,
 
   // Setting
-  SETTING_FINGER, // Boolean
-  SETTING_LANG, // String
-  SETTING_NOTIFY, // Boolean
-  SETTING_DARK_MODE, // Boolean
-  SETTING_DASHBOARD_FUNCTION, // List Widget Group
-  SETTING_DASHBOARD_TODO, // List Widget Item
+  SETTING_FINGER,
+  SETTING_LANG,
+  SETTING_NOTIFY,
+  SETTING_DARK_MODE,
+  SETTING_DASHBOARD_FUNCTION,
+  SETTING_DASHBOARD_TODO,
 }
 
 class StorageService {
   private readonly h_debug = false;
 
-  constructor() {}
+  // Helper: dynamic import Preferences
+  private async getPreferences() {
+    if (typeof window === 'undefined') return null;
+    const mod = await import('@capacitor/preferences');
+    return mod.Preferences;
+  }
 
-  public async get(key: StorageKey, datatype: 'string' | 'number' | 'boolean' | 'object' = 'string'): Promise<any> {
-    const res: GetResult = await Preferences.get({ key: key.toString() });
+  public async get(
+    key: StorageKey,
+    datatype: 'string' | 'number' | 'boolean' | 'object' = 'string'
+  ): Promise<any> {
+    const Preferences = await this.getPreferences();
+    if (!Preferences) return null;
 
+    const res = await Preferences.get({ key: key.toString() });
     if (!res || res.value == null) return null;
 
     let value: any = res.value;
@@ -55,7 +63,7 @@ class StorageService {
         value = +value;
         break;
       case 'boolean':
-        value = (value === 'true');
+        value = value === 'true';
         break;
       case 'object':
         try {
@@ -64,9 +72,6 @@ class StorageService {
           if (this.h_debug) console.warn('JSON parse error for key:', key, e);
           value = null;
         }
-        break;
-      default:
-        // string giữ nguyên
         break;
     }
 
@@ -81,6 +86,9 @@ class StorageService {
   }
 
   public async set(key: StorageKey, value: any): Promise<void> {
+    const Preferences = await this.getPreferences();
+    if (!Preferences) return;
+
     if (value != null) {
       if (typeof value === 'number' || typeof value === 'boolean') {
         value = String(value);
@@ -99,10 +107,16 @@ class StorageService {
   }
 
   public async remove(key: StorageKey): Promise<void> {
+    const Preferences = await this.getPreferences();
+    if (!Preferences) return;
+
     await Preferences.remove({ key: key.toString() });
   }
 
   public async clear(): Promise<void> {
+    const Preferences = await this.getPreferences();
+    if (!Preferences) return;
+
     await Preferences.clear();
   }
 }
