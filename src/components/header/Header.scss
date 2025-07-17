@@ -1,0 +1,41 @@
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #b7300d;
+    color: white;
+    gap: 20px;
+    padding: 20px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    .back-button {
+        background: none;
+        border: none;
+        outline: none;
+        color: white;
+        display: flex;
+        font-size: 20px;
+        align-items: center;
+        padding: 0;
+        cursor: pointer;
+      }
+
+    .icon-right {
+        text-align: end;
+        background:transparent;
+        border: none;
+        outline: none;
+        margin-left: auto;
+        font-size: 20px;
+        margin-right: 16px;
+        color: #ffffff;
+        padding: 0;
+    }
+
+    .title {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0;
+    }
+}

@@ -1,0 +1,49 @@
+.actionsheet-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  
+    display: flex;
+    align-items:flex-end;        
+    justify-content: center; 
+  }
+  
+  .actionsheet {
+    background-color: white;
+    width: 500px;             
+    // padding: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  
+    .actionsheet-button {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        width: 100%;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        outline:none;
+        cursor: pointer;
+      
+        &:hover {
+          background: #eaeaea;
+        }
+      
+        .icon {
+          font-size: 24px;
+          display: flex;
+          align-items: center;
+        }
+      
+        .text {
+          flex: 1;
+          text-align: left;
+        }
+      }
+      
+  }
+  

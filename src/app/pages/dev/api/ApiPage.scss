@@ -1,0 +1,38 @@
+.api-page {
+    font-family: Arial, sans-serif;
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    .api-content {
+        flex: 1;
+        overflow-y: auto;
+        background-color: #fff;
+    
+        .api-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+    
+          .api-item {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid #eee;
+            font-size: 16px;
+            color: #222;
+
+            &:hover {
+                background-color: #f9f9f9;
+            }
+
+            .field-icon{
+                font-size: 24px;
+                margin-right: 20px;
+            }
+          }
+        }
+    }
+}

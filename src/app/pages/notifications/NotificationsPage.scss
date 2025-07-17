@@ -1,0 +1,33 @@
+.notify-page {
+    font-family: Arial, sans-serif;
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    .searchbar {
+        display: flex;
+        align-items: center;
+        background: white;
+        border-radius: 4px;
+        padding: 12px 12px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        margin: 12px;
+        gap: 12px;
+      }
+      
+      .searchbar .search-icon {
+        color: #666;
+      }
+      
+      .searchbar input[type='search'] {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        background: transparent;
+        color: #333;
+      }
+      
+}

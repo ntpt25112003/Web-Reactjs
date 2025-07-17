@@ -1,0 +1,119 @@
+.setting-page{
+    background-image: url('/images/background.jpg');
+    width: 100vw;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    position: fixed;
+    inset: 0;
+}
+.setting-content {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 16px;
+    overflow-y: auto; 
+    box-sizing: border-box;
+    // margin-top: 60px;
+  }
+  
+  /* Card */
+  .card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    padding: 12px 0;
+  }
+  
+  .card-header {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    color: #B7300D;
+    padding: 0 16px 12px;
+  }
+  
+  /* Avatar */
+  .avatar-container {
+    text-align: center;
+    margin-bottom: 12px;
+  
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  
+    .name {
+      font-weight: bold;
+      margin-top: 8px;
+    }
+  }
+  // .setting-header {
+  //   display: flex;
+  //   align-items: center;
+  //   background: var(--ion-color-primary, #b7300d);
+  //   color: #fff;
+  //   padding: 20px 16px;
+  //   box-sizing: border-box;
+  //   width: 100%;
+  //   position: fixed;
+  //   top: 0;
+  //   left: 0;
+  //   z-index: 1000;
+
+  //   .setting-title {
+  //       font-size: 18px;
+  //       font-weight: bold;
+  //       margin: 0;
+  //     }
+  //   }
+
+  /* Item row */
+  .item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  
+    .icon {
+      margin-right: 12px;
+      font-size: 22px;
+      color: #B7300D;
+    }
+  
+    span {
+      color: #333;
+      font-size: 16px;
+    }
+  
+    &:hover {
+      background-color: #f1f1f1;
+    }
+  
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  
+    &.danger {
+      .icon,
+      span {
+        color: #d9534f;
+      }
+    }
+  }
+  
+  /* Version footer */
+  .version-container {
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    margin: 16px 0;
+    cursor: pointer;
+  }
+
+  

@@ -1,0 +1,128 @@
+.dev-form-page {
+    font-family: Arial, sans-serif;
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f5f5f5;
+  
+    .form-container {
+      flex: 1;
+      overflow-y: auto;
+      // padding: 16px;
+      margin: 0px;
+  
+      // .card {
+      //   background-color: white;
+      //   border-radius: 4px;
+      //   // padding: 16px;
+      //   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      // }
+  
+      .item {
+        display: flex;
+        flex-direction: column; 
+        padding: 8px 16px;
+        // margin-bottom: 20px;
+        // padding-bottom: 12px;
+        border-bottom: 1px solid #eee;
+      
+        .item-label {
+            display: flex;
+            align-items: center;
+            width: 100%; 
+            // gap: 0px;
+            margin-bottom: 8px;
+
+      
+          .icon {
+            font-size: 20px;
+            color: #555;
+          }
+      
+          span {
+            font-weight: 600;
+            color: #000000;
+          }
+        }
+      
+        .item-field {
+          width: 100%;
+      
+          input,
+          select,
+          .field-component {
+            width: 100%;
+          }
+        }
+      }      
+    }
+      .footer-buttons {
+        display: flex;
+        justify-content: space-between; 
+        align-items: center;
+        background-color: #f8f8f8;
+        border-top: 1px solid #eee;
+        // width: 100%;
+        box-sizing: border-box;
+        margin: 16px;
+      
+        .left-buttons,
+        .right-buttons {
+          display: flex;
+        //   gap: 12px;
+          align-items: center;
+
+        }
+      
+        button {
+          font-weight: 600;
+          font-size: 16px;
+          padding: 10px 24px;
+          border-radius: 24px;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+      
+      
+  
+    .field-list-form {
+      margin-top: 16px;
+  
+      .list-header {
+        font-weight: bold;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 8px;
+      }
+  
+      .object-item {
+        padding: 8px 12px;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        background-color: #fafafa;
+  
+        &.openItem {
+          background-color: #f0f0f0;
+        }
+  
+        .childItem {
+          padding-left: 20px;
+        }
+  
+        .general-bold-border {
+          border: 1px solid #b91c1c;
+          border-radius: 6px;
+          padding: 8px;
+          background-color: #fff5f5;
+        }
+      }
+    }
+}
